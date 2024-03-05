@@ -10,10 +10,8 @@ public class A2Ex2 {
     System.out.println("Informe a quantidade de parcelas");
     double qtdParcelas = sc.nextInt();
 
-    
     double juros;
     double resultadoFinal = valor * juros;
-    
 
   }
 
@@ -28,7 +26,7 @@ public class A2Ex2 {
     }
   }
 
-  public static double valorCarro (double valor, double juros) {
+  public static double valorCarro(double valor, double juros) {
     double resultadoFinal = valor * juros;
     if (juros == 0) {
       return valor;
