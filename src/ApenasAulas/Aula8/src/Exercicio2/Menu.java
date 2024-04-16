@@ -3,54 +3,62 @@ package Exercicio2;
 import java.util.Scanner;
 
 public class Menu {
-    public static Scanner sc = new Scanner(System.in);
+    static Scanner ler = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        GerenciadorTarefas gerenciar = new GerenciadorTarefas();
+        GerenciadorTarefas gerenciador = new GerenciadorTarefas();
 
         int opcao = 0;
-        int pos;
         do {
             System.out.println("\nMENU");
-            System.out.println("1. Nova Tarefa");
-            System.out.println("2. Listar Tarefas");
-            System.out.println("3. Remover Tarefa");
-            System.out.println("4. Alterar Tarefa");
-            System.out.println("5. Marcar Concluída");
+            System.out.println("1. Nova tarefa");
+            System.out.println("2. Listar tarefas");
+            System.out.println("3. Remover tarefa");
+            System.out.println("4. Alterar tarefa");
+            System.out.println("5. Marcar concluída");
             System.out.println("0. Sair");
-            opcao = sc.nextInt();
+            opcao = ler.nextInt();
 
             switch (opcao) {
                 case 1:
+                    System.out.println("\nCódigo: ");
+                    ler.nextLine();
+                    String cod = ler.nextLine();
+
                     System.out.println("\nTarefa: ");
-                    String tarefa = sc.next();
+                    String desc = ler.nextLine();
+
+                    Tarefa novaTarefa = new Tarefa();
+                    novaTarefa.descricao = desc;
+                    novaTarefa.codigo = cod;
+                    novaTarefa.concluida = false;
+
+                    gerenciador.novaTarefa(novaTarefa);
+
+                    break;
 
                 case 2:
-                    System.out.println("\nTodas Tarefas: ");
-                    gerenciar.listar();
+                    gerenciador.listar();
                     break;
 
                 case 3:
-                    System.out.println("\nPosição da tarefa à remover");
-                    int rem = sc.nextInt();
-                    gerenciar.remover(rem);
+                    System.out.println("\nPosição: ");
+                    int pos = ler.nextInt();
+
+                    gerenciador.remover(pos);
                     break;
 
                 case 4:
-                    System.out.println("\nPosição da tarefa à alterar");
-                    int alt = sc.nextInt();
-                    gerenciar.alterar(alt, tarefa, tarefa);
                     break;
 
                 case 5:
-                    System.out.println("\nPosição da tarefa à marcar como concluída");
-                    int conc = sc.nextInt();
-                    gerenciar.concluir(conc);
-                    break;
+                    System.out.println("\nPosição: ");
+                    int pos2 = ler.nextInt();
 
+                    gerenciador.concluir(pos2);
+                    break;
             }
         } while (opcao != 0);
-        System.out.println("Você saiu do programa!");
     }
+
 }
