@@ -30,4 +30,10 @@ public class GerenciadorTarefas {
         t.concluida = true;
     }
 
+    public void alterar(int posicao, String codigo, String descricao) {
+        Tarefa t = tarefas.get(posicao - 1);
+        t.codigo = codigo;
+        t.descricao = descricao;
+    }
+
 }

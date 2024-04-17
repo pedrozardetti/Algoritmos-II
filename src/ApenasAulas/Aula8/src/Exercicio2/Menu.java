@@ -49,16 +49,28 @@ public class Menu {
                     break;
 
                 case 4:
+                    System.out.println("\nPosição: ");
+                    int pos2 = ler.nextInt();
+
+                    System.out.println("\nCódigo: ");
+                    String cod2 = ler.nextLine();
+
+                    System.out.println("\nDescrição: ");
+                    String desc2 = ler.nextLine();
+
+                    gerenciador.alterar(pos2, cod2, desc2);
+
                     break;
 
                 case 5:
                     System.out.println("\nPosição: ");
-                    int pos2 = ler.nextInt();
+                    int pos3 = ler.nextInt();
 
-                    gerenciador.concluir(pos2);
+                    gerenciador.concluir(pos3);
                     break;
             }
         } while (opcao != 0);
+        System.out.println("Você saiu do programa :)");
     }
 
 }
