@@ -9,7 +9,7 @@ public class Menu {
     
     public static void main(String[] args) {
 
-        calcularDistancia calcular = new calcularDistancia();
+        CalcularDistancia calcular = new CalcularDistancia();
 
         
         System.out.println("Informe a altura do muro");
