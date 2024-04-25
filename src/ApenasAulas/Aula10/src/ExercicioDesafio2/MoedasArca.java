@@ -2,6 +2,7 @@ package ExercicioDesafio2;
 
 public class MoedasArca {
     
-    public int numeroMoedas;
+    public int moedasDoCapitao;
     public int numeroMarinheiros;
+    public int moedas;
 }
