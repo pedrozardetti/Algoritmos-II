@@ -9,7 +9,7 @@ public class Menu {
 
     ControleReserva controle = new ControleReserva();
     
-    int opcao = 0;
+    int opcao;
     
     do {
       System.out.println("\nMENU");
@@ -17,33 +17,26 @@ public class Menu {
       System.out.println("2. Chamar Próximo");
       System.out.println("3. Listar Reservas");
       System.out.println("0. Sair");
-      opcao = sc.nextInt();
+      opcao = Integer.parseInt(sc.nextLine());
       
       switch (opcao) {
         case 1:
-        Reserva reserva = new Reserva();
+          Reserva reserva = new Reserva();
         
-        System.out.println("\nResponsável: ");
-        String resp = sc.nextLine();
-        reserva.responsavel = resp;
+          System.out.println("\nResponsável: ");
+          String resp = sc.nextLine();
+          reserva.responsavel = resp;
         
-        System.out.println("\nLugares: ");
-          int lugares = sc.nextInt();
+          System.out.println("\nLugares: ");
+          int lugares = Integer.parseInt(sc.nextLine());
           reserva.lugares = lugares;
 
           controle.novaReserva(reserva);
           break;
 
         case 2:
-          System.out.println("\nResponsável: ");
-          String resp2 = sc.nextLine();
-          reserva.responsavel = resp2;
-
-          System.out.println("\nLugares: ");
-          int lugares2 = sc.nextInt();
-          reserva.lugares = lugares;
-
           controle.proximo();
+          break;
 
         case 3: 
           controle.listar();
