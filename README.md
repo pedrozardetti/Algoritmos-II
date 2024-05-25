@@ -1,4 +1,4 @@
-# 🌟 Algoritmos II - Aventura em Java 🌟
+# 🌟 Algoritmos II - Jornada Java 🌟
 
 ![Badge de Licença](https://img.shields.io/badge/licença-MIT-blue.svg)
 
