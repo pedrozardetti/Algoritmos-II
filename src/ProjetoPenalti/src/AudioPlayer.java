@@ -16,14 +16,17 @@ public class AudioPlayer {
         playSound("/resources/AudioDefesa.wav");
     }
 
-    private static void playSound(String filePath) {
+    private static void playSound(String resourcePath) {
         try {
-            File soundFile = new File(filePath);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            URL soundURL = AudioPlayer.class.getResource(resourcePath);
+            if (soundURL == null) {
+                throw new IOException("Arquivo não encontrado " + resourcePath);
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
             Clip clip = AudioSystem.getClip();
             clip.open(audioStream);
             clip.start();
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+        } catch (Exception e) {
             System.err.println("Erro ao reproduzir o som: " + e.getMessage());
         }
     }
