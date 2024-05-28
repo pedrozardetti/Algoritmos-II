@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class MostrarPlacar {
 
-    private ArrayList<ResultadoRodada> resultados;
+    private ArrayList<ResultadoRodada> resultados; // 1..n
     private String nomeJogador;
     private String nomeGoleiro;
 
