@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class JogoPenalti {
     private Scanner sc;
-    private EscolherDirecao escolher;
-    private ArrayList<ResultadoRodada> resultados;
+    private EscolherDirecao escolher; // 1..1
+    private ArrayList<ResultadoRodada> resultados; // 1 * n
     private String nomeJogador;
     private String nomeGoleiro;
 
@@ -57,10 +57,10 @@ public class JogoPenalti {
     private void iniciarJogo() {
         System.out.println("\nQual é o nome do jogador?");
         sc.nextLine();
-        nomeJogador = sc.nextLine();
+        nomeJogador = lerNome();
 
         System.out.println("\nQual é o nome do goleiro?");
-        nomeGoleiro = sc.nextLine();
+        nomeGoleiro = lerNome();
         System.out.println("----------------------------------------------");
 
         Penalti penalti = new Penalti(nomeJogador, nomeGoleiro);
@@ -91,7 +91,6 @@ public class JogoPenalti {
                 }
             }
 
-            // Armazenar o resultado da rodada na ArrayList
             resultados.add(new ResultadoRodada(golsJogador, golsGoleiro, defesasJogador, defesasGoleiro));
 
             rodada++;
@@ -105,18 +104,48 @@ public class JogoPenalti {
         System.out.println("Total de defesas do " + nomeJogador + ": " + defesasJogador + " de 3 rodadas");
     }
 
+    private String lerNome() {
+        String nome;
+        while (true) {
+            nome = sc.nextLine();
+            if (nome.matches("[a-zA-Z]+")) {
+                break;
+            } else {
+                System.out.println("Nome inválido. Por favor, insira apenas caracteres alfabéticos.");
+            }
+        }
+        return nome;
+    }
+
     private void realizarJogada(String jogador, String goleiro, Penalti penalti) {
         System.out.println(jogador + " vai chutar e " + goleiro + " vai defender.");
-        System.out.println("\nQual lado nosso " + jogador + " vai cobrar o pênalti? (1-5)");
-        int escolherLadoJogador = sc.nextInt();
+        int escolherLadoJogador = 0;
+
+        do {
+            System.out.println("\nQual lado nosso " + jogador + " vai cobrar o pênalti? (1-5)");
+            escolherLadoJogador = sc.nextInt();
+            if (escolherLadoJogador < 1 || escolherLadoJogador > 5) {
+                System.out.println("Número inválido. Por favor, escolha um número entre 1 e 5.");
+            }
+        } while (escolherLadoJogador < 1 || escolherLadoJogador > 5);
+
         penalti.setEscolhaJogador(escolherLadoJogador);
 
-        System.out.println("Qual lado nosso " + goleiro + " vai tentar defender? (1-5)");
-        int escolherLadoGoleiro = sc.nextInt();
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+
+        int escolherLadoGoleiro = 0;
+        do {
+            System.out.println("Qual lado nosso " + goleiro + " vai tentar defender? (1-5)");
+            escolherLadoGoleiro = sc.nextInt();
+            if (escolherLadoGoleiro < 1 || escolherLadoGoleiro > 5) {
+                System.out.println("Número inválido. Por favor, escolha um número entre 1 e 5.");
+            }
+        } while (escolherLadoGoleiro < 1 || escolherLadoGoleiro > 5);
+
         penalti.setEscolhaGoleiro(escolherLadoGoleiro);
 
         System.out.println("Ele vai para a batida...");
     }
 }
-
-
