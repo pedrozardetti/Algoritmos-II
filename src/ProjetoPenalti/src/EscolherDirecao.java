@@ -3,6 +3,7 @@ public class EscolherDirecao {
     public void informarNome(Penalti penalti) {
         System.out.println("\nEntão, nosso camisa 10 será --> " + penalti.getNomeJogador());
         System.out.println("\nE isso quer dizer que a nossa muralha vai ser --> " + penalti.getNomeGoleiro());
+    
     }
 
     public boolean isGol(Penalti penalti) {
