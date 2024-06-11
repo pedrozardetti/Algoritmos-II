@@ -47,7 +47,7 @@ Para configurar e explorar os códigos deste repositório, siga estes passos:
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/Algoritmos-ll.git
+    git clone https://github.com/pedrozardetti/Algoritmos-ll.git
     ```
 
 2. Navegue até o diretório do projeto:
